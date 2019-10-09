@@ -29,6 +29,9 @@ Attribute VB_Name = "modDeclaraciones"
 
 Option Explicit
 
+Public MapData_Adyacente() As MapBlock
+
+
 Public Meteo                 As New clsMeteo
 Public Audio                 As New clsAudio
 
@@ -206,7 +209,7 @@ Public Const YMinMapSize As Byte = 1
 Public Type Position
 
     X As Integer
-    Y As Integer
+    y As Integer
 
 End Type
 
@@ -215,7 +218,7 @@ Public Type WorldPos
 
     Map As Integer
     X As Integer
-    Y As Integer
+    y As Integer
 
 End Type
 
@@ -278,7 +281,7 @@ Public Light_Count As Integer
 Public Type Light
 
     X As Integer
-    Y As Integer
+    y As Integer
     Active As Boolean 'Do we ignore this light?
     id As Long
     map_x As Long 'Coordinates
@@ -422,8 +425,8 @@ Public Const PATH_GRAPHICS As String = "Graficos"
 Public Const PATH_INIT     As String = "Init"
 
 'Good old BitBlt
-Public Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
-Public Declare Function SetPixel Lib "gdi32" (ByVal hdc As Long, ByVal X As Long, ByVal Y As Long, ByVal crColor As Long) As Long
+Public Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+Public Declare Function SetPixel Lib "gdi32" (ByVal hdc As Long, ByVal X As Long, ByVal y As Long, ByVal crColor As Long) As Long
 
 'Sound stuff
 Public Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, ByVal lpstrReturnString As String, ByVal uRetrunLength As Long, ByVal hwndCallback As Long) As Long
